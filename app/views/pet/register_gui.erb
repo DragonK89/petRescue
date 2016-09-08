@@ -17,6 +17,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><span class="glyphicon glyphicon-road"></span></span>
 						<select class="form-control" name="clinic_id">
+							<option value=''></option>
 							<%@clinic_list.each do |clinic|%>
 							<option value=<%=clinic.id%>><%=clinic.clinic_name%></option>
 							<%end%>
