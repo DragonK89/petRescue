@@ -7,7 +7,7 @@ class StoryController < ApplicationController
 		if !pet
 			return render :json => {status:0,message:"Pet not found!"}
 		end
-		story = pet.stories.create(story: params[:story])
+		story = pet.stories.new(story_params)
 		story.update(view_numb: 0)
 		if !story.valid?
 			return render :json => {status:0,message:"Invalid field!"}
@@ -23,7 +23,7 @@ class StoryController < ApplicationController
   end
 
   def viewed
-    story = Story.find(params[:story_id])
+    story = Story.find(view_story_params)
     if !story
       render :json => {status:0,message:"Story not found!"}
     else
@@ -33,4 +33,13 @@ class StoryController < ApplicationController
 	  render :json => story
     end
   end
+  
+  def story_params
+      params.require(:user).permit(:pet_id, :title, :story)
+  end
+  
+  def view_story_params
+      params.require(:user).permit(:story_id)
+  end
+  
 end
