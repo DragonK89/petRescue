@@ -60,7 +60,7 @@ class PetController < ApplicationController
 		key = ApplicationHelper.generate_code(5)
 		payload = {:user_id => @user_id, :pet_id => params[:pet_id] }
 		confirm_code= JWT.encode payload, key , 'HS256'
-		pet.update(confirm_code: confirm_code,foster_status: 1)
+		pet.update(confirm_code: confirm_code,health_status: 1)
 		render :json => {status: 1,message:"do not lost this key , key only valid till 12:00 AM",confirm_code: pet.id.to_s+"-"+key}
 	end
 
