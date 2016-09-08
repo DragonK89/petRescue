@@ -57,7 +57,7 @@ class UserController < ApplicationController
 
 	def logout
 		cookies.delete :token
-		redirect_to '/user/login_gui'
+		render :json => {status: 0, message:"Logout in success!",}
 	end
 
 end
