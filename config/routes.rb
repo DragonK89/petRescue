@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 	get 'story/show' => 'story#show'
 	post 'story/create' => 'story#create'
 	get 'story/create_gui' => 'story#create_gui'
+	get 'story/viewed' => 'story#viewed'
 	
 	#clinic routes
 	get 'clinic/seed' => 'clinic#seed'
