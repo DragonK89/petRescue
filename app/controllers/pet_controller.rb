@@ -5,10 +5,10 @@ class PetController < ApplicationController
 	def show
 		query = Pet
 		if params[:health_status]
-			query=query.where(health_status: params[:health_status])
+			query=query.where.not(health_status: params[:health_status])
 		end
 		if params[:foster_status]
-			query=query.where.not(foster_status: params[:foster_status])
+			query=query.where(foster_status: params[:foster_status])
 		end
 		if !params[:health_status] && !params[:foster_status]
 			query =query.all
