@@ -5,23 +5,31 @@ class StoryController < ApplicationController
 	def create
 		pet = Pet.find(params[:pet_id])
 		if !pet
-			return render :json => {status:0,message:"pet not found"}
+			return render :json => {status:0,message:"Pet not found!"}
 		end
 		story = pet.stories.create(story: params[:story])
+		story.update(view_numb: 0)
 		if !story.valid?
-			return render :json => {status:0,message:"invalid field"}
+			return render :json => {status:0,message:"Invalid field!"}
 		end
-		render :json => {status:1,message:"add story success"}
+		render :json => {status:1,message:"Add story success!"}
 	end
 
 	def show
-		pet = Pet.find(params[:pet_id])
-		if !pet
-			return render :json => {status:0,message:"pet not found"}
-		end
-		render :json => pet.stories.all
+		render :json => Story.all
 	end
 
 	def create_gui
-	end
+  end
+
+  def viewed
+    story = Story.find(params[:story_id])
+    if !story
+      render :json => {status:0,message:"Story not found!"}
+    else
+      view_numb = story.view_numb
+      view_numb +=1
+      story.update(view_numb: view_numb)
+    end
+  end
 end

@@ -8,12 +8,12 @@ class UserController < ApplicationController
 			if user.password == params[:password]
 				payload = {:user_id => user.id,:expires => 24.hours.from_now }
 				cookies[:token] = JWT.encode payload, '$ecretK3y' , 'HS256'
-				render :json => {status: 1,message:"loged in success",}
+				render :json => {status: 1,message:"Logged in success!",}
 			else
-				render :json => {status: 0,message:"wrong info"}
+				render :json => {status: 0,message:"Wrong info!"}
 			end
 		else
-			render :json => {status: 0,message:"user not exist"}
+			render :json => {status: 0,message:"User not exist!"}
 		end
 	end
 
@@ -21,9 +21,9 @@ class UserController < ApplicationController
 		puts User.column_names
 		user = User.create(user_name: params[:user_name],display_name:params[:display_name],password: params[:password],phone_number:params[:phone_number],address:params[:address],longitude:params[:longitude],latitude:params[:latitude])
 		if(!user.valid?)
-			render :json => {status: 0,message:"invalid field"}
+			render :json => {status: 0,message:"Invalid field!"}
 		else
-			render :json => {status: 1,message:"register user success"}
+			render :json => {status: 1,message:"Register user success!"}
 		end
 	end
 

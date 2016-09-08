@@ -5,9 +5,9 @@ class ClinicController < ApplicationController
 	def register
 			Clinic.create()
 			if !pet.valid?
-				render :json => {status: 0,message:"invalid field"}
+				render :json => {status: 0,message:"Invalid field!"}
 			else
-				render :json => {status: 1,message:"register clinic success"}
+				render :json => {status: 1,message:"Register clinic success!"}
 			end
 	end
 
