@@ -30,6 +30,7 @@ class StoryController < ApplicationController
       view_numb = story.view_numb
       view_numb +=1
       story.update(view_numb: view_numb)
+	  render :json => story
     end
   end
 end
