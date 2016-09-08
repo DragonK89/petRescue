@@ -1,0 +1,19 @@
+<div class="panel panel-default ">
+  <div class="panel-body">
+    <div class= col-sm-2>
+    <img class="img-responsive img-circle" src="<%=@user.img_url%>"/>
+    </div>
+    <div class="col-sm-10">
+      <h3><%=@user.name%></h3>
+      <h4>Joined since : <%=@user.created_at.strftime("%d/%m/%Y")%></h4>
+      <h4>Role : <%=@user.role%></h4>
+      <h4>Aproved : 
+        <%if @user.approved ==0%>
+        No
+        <%else%>
+        Yes
+        <%end%>
+      </h4>
+    </div>
+  </div>
+</div>

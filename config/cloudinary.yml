@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: deekntpbm
+  api_key: '366728986557714'
+  api_secret: NFUG-Iftnjz3uBdOWrHhAVGqv2M
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: deekntpbm
+  api_key: '366728986557714'
+  api_secret: NFUG-Iftnjz3uBdOWrHhAVGqv2M
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: deekntpbm
+  api_key: '366728986557714'
+  api_secret: NFUG-Iftnjz3uBdOWrHhAVGqv2M
+  enhance_image_tag: true
+  static_image_support: false

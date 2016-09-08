@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">PET</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="/pet/register_gui">Pet Register</a></li>
+			<li><a href="/pet/register_user_gui">Confirm Code</a></li>
+			<li><a href="/story/create_gui">Add Pet Story</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<%if @user_id%>
+			<li><a href="/user/logout">Logout</a></li>
+			<%else%>
+			<li><a href="/user/login_gui">Login</a></li>
+			<li><a href="/user/register_gui">Register</a></li>
+			<%end%>
+		</ul>
+	</div>
+</nav>
